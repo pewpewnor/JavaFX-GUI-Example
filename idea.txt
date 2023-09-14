@@ -1,0 +1,131 @@
+App title: Watches Dealer
+
+================================================================================
+SUMMARY
+--------------------------------------------------------------------------------
+
+User Interface:
+1. Login Form
+2. Register Form
+3. Main Form
+4. Buy Product Form
+5. View Transaction History Form
+6. Manage Product Form
+7. Manage Brand Form
+
+Component:
+1. TextField
+2. PasswordField
+3. Button
+4. Menu, MenuBar, MenuItem
+5. ComboBox
+6. Label
+7. Dialog
+8. BorderPane
+9. GridPane
+10. ScrollPane
+11. Window
+12. FlowPane
+13. CheckBox
+
+Database:
+1. Customer
+2. HeaderTransaction
+3. DetailTransaction
+4. Watch
+5. Brand
+6. Cart
+
+================================================================================
+Deskripsi User Interface & Komponen
+--------------------------------------------------------------------------------
+
+1. Login Form
+    TextField:
+        - Input Email
+    PasswordField:
+        - Input Password
+    Button:
+        - Button Register -> goto register form
+        - Button Login -> goto main form
+
+2. Register Form
+    TextField:
+        - Input Username
+        - Input Email
+    CheckBox:
+        - Choose Gender
+    PasswordField:
+        - Input Password
+        - Input Confirm Password
+    Button:
+        - Button Register -> goto main form
+        - Button Go Back -> goto login form
+
+3. Main Form
+    Menu:
+        Transaction:
+            - Buy Watch -> goto buy product form
+            - My Transaction History -> goto view transaction history form
+        Management:
+            - Manage Product -> goto manage product form
+            - Manage Brand -> goto manage brand form
+
+4. Buy Product Form (Customer POV only)
+    Table (All Product): (can be clicked)
+        - Watch ID
+        - Watch Name
+        - Watch Brand
+        - Watch Price
+        - Watch Stock
+    Table (Cart):
+	- Watch ID
+	- Quantity
+    TextField:
+        - Input Quantity
+    Button:
+        - Add Watch To Cart
+	- Checkout
+	- Clear Cart (OP)
+
+5. View Transaction History Form (Customer POV only)
+    Table: (can be clicked)
+        - Transaction ID
+        - Customer ID
+        - Transaction Date
+    Table:
+        - Transaction ID
+        - Watch ID
+        - Watch Name
+        - Watch Brand
+        - Watch Price
+        - Watch Quantity
+
+6. Manage Product Form (Admin POV)
+    Table: (can be clicked)
+        - Watch ID
+        - Watch Name
+        - Watch Brand
+        - Watch Price
+        - Watch Stock
+    TextField:
+        - Input Watch Name
+        - Input Watch Price
+        - Input Watch Stock
+    ComboBox:
+        - Choose Watch Brand
+    Button:
+        - Insert Watch
+        - Update Watch
+        - Remove Watch
+
+7. Manage Brand Form (Admin POV)
+    Table: (can be clicked)
+        - Watch Brand ID
+        - Watch Brand Name
+    TextField:
+        - Input Brand Name
+    Button:
+        - Add Brand Button
+        - Update Brand Button
+        - Delete Brand Button

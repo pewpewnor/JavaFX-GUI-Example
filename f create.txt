@@ -1,0 +1,62 @@
+DROP DATABASE watchesdealer;
+CREATE DATABASE watchesdealer;
+
+USE watchesdealer;
+
+CREATE TABLE User (
+    UserID INT AUTO_INCREMENT PRIMARY KEY,
+    UserName VARCHAR(40) NOT NULL,
+    UserEmail VARCHAR(40) NOT NULL,
+    UserPassword VARCHAR(20) NOT NULL,
+    UserGender VARCHAR(6) NOT NULL,
+    UserRole VARCHAR(8) NOT NULL
+);
+
+CREATE TABLE Brand (
+    BrandID INT AUTO_INCREMENT PRIMARY KEY,
+    BrandName VARCHAR(40) NOT NULL
+);
+
+CREATE TABLE Watch (
+    WatchID INT AUTO_INCREMENT PRIMARY KEY,
+    BrandID INT NOT NULL,
+    WatchName VARCHAR(40) NOT NULL,
+    WatchPrice INT NOT NULL,
+    WatchStock INT NOT NULL,
+    FOREIGN KEY (BrandID) REFERENCES Brand(BrandID) ON DELETE CASCADE
+);
+
+CREATE TABLE Cart (
+    UserID INT NOT NULL,
+    WatchID INT NOT NULL,
+    Quantity INT NOT NULL,
+    FOREIGN KEY (UserID) REFERENCES User(UserID) ON DELETE CASCADE,
+    FOREIGN KEY (WatchID) REFERENCES Watch(WatchID) ON DELETE CASCADE
+);
+
+CREATE TABLE HeaderTransaction (
+   TransactionID INT AUTO_INCREMENT PRIMARY KEY,
+   UserID INT NOT NULL,
+   TransactionDate DATE NOT NULL,
+   FOREIGN KEY (UserID) REFERENCES User(UserID) ON DELETE CASCADE
+);
+
+CREATE TABLE DetailTransaction (
+   TransactionID INT NOT NULL,
+   WatchID INT NOT NULL,
+   Quantity INT NOT NULL,
+   FOREIGN KEY (TransactionID) REFERENCES HeaderTransaction(TransactionID) ON DELETE CASCADE,
+   FOREIGN KEY (WatchID) REFERENCES Watch(WatchID) ON DELETE CASCADE
+);
+
+INSERT INTO User
+VALUES (NULL, "Audina Chandra", "a@b.com", "a12345", "Female", "Admin");
+
+INSERT INTO User
+VALUES (NULL, "Gav Reynald", "gavrey@gmail.com", "a12345", "Male", "Customer");
+
+INSERT INTO Brand VALUES (NULL, "Rolex");
+INSERT INTO Brand VALUES (NULL, "Omega");
+
+INSERT INTO Watch VALUES (NULL, 1, "Submariner 300 Watch", 10500, 4);
+INSERT INTO Watch VALUES (NULL, 2, "Seamaster Planet Ocean Watch", 6900, 2);
